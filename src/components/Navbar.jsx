@@ -46,11 +46,15 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-[100] h-[76px] flex items-center border-b transition-colors duration-300 ${
-        scrolled
-          ? "bg-bg/80 backdrop-blur-xl backdrop-saturate-150 border-border shadow-xs"
-          : "bg-transparent border-transparent"
+        scrolled ? "border-border shadow-xs" : "border-transparent"
       }`}
     >
+      <div
+        aria-hidden="true"
+        className={`absolute inset-0 -z-10 transition-all duration-300 ${
+          scrolled ? "bg-bg/80 backdrop-blur-xl backdrop-saturate-150" : "bg-transparent"
+        }`}
+      />
       <div className="container mx-auto max-w-[1160px] px-6 flex items-center justify-between gap-6">
         <motion.a
           href="#top"
@@ -118,7 +122,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: EASE }}
-            className="fixed inset-x-0 top-[76px] bottom-0 bg-bg border-t border-border md:hidden"
+            className="fixed inset-x-0 top-[76px] h-[calc(100dvh-76px)] bg-bg border-t border-border md:hidden overflow-y-auto"
           >
             <motion.nav
               aria-label="Navegación móvil"
