@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Design tokens — consumed by Tailwind utilities (see tailwind.config.js)
+   and by the theme switcher (data-theme attribute on <html>).
+   ========================================================================== */
+:root {
+  --bg: #0a0e17;
+  --bg-soft: #0d1220;
+  --surface: #131a2b;
+  --surface-2: #182238;
+  --surface-hover: #1c2740;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --text: #f3f5fb;
+  --text-muted: #a3acc2;
+  --text-faint: #6b7690;
+
+  --accent: #6366f1;
+  --accent-2: #22d3ee;
+  --accent-3: #34d399;
+  --accent-soft: rgba(99, 102, 241, 0.14);
+  --accent-grad: linear-gradient(120deg, #6366f1 0%, #8b5cf6 50%, #22d3ee 100%);
+  --danger: #f87171;
+
+  --shadow-sm: 0 4px 16px -6px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 16px 40px -12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 30px 80px -20px rgba(0, 0, 0, 0.65);
+  --shadow-glow: 0 0 0 1px rgba(99, 102, 241, 0.25), 0 20px 60px -15px rgba(99, 102, 241, 0.35);
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f6f7fb;
+  --bg-soft: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f0f2f9;
+  --surface-hover: #e8ebf5;
+  --border: rgba(15, 23, 42, 0.09);
+  --border-strong: rgba(15, 23, 42, 0.16);
+
+  --text: #0f1524;
+  --text-muted: #4c5568;
+  --text-faint: #838da3;
+
+  --accent-soft: rgba(99, 102, 241, 0.1);
+  --shadow-sm: 0 4px 16px -6px rgba(15, 23, 42, 0.12);
+  --shadow-md: 0 16px 40px -12px rgba(15, 23, 42, 0.16);
+  --shadow-lg: 0 30px 80px -20px rgba(15, 23, 42, 0.22);
+  --shadow-glow: 0 0 0 1px rgba(99, 102, 241, 0.18), 0 20px 60px -15px rgba(99, 102, 241, 0.22);
+  color-scheme: light;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-semibold tracking-tight;
+    line-height: 1.15;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-surface-2 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-border-strong;
+  }
+
+  main > section:not(#top) {
+    @apply py-20 md:py-[120px];
+  }
+
+  main > section:nth-of-type(even) {
+    @apply bg-bg-soft border-y border-border;
+  }
+}
+
+@layer components {
+  .grad-text {
+    background: var(--accent-grad);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .grad-bg {
+    background: var(--accent-grad);
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-display text-[13px] font-semibold uppercase tracking-[0.14em] text-accent mb-3.5;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply w-[22px] h-0.5 rounded-full grad-bg;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full bg-surface border border-border px-3.5 py-1.5 text-[13px] font-medium text-text-muted;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-[12.5px] font-semibold;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  [data-theme="light"] .tag {
+    color: #4338ca;
+  }
+
+  .card {
+    @apply bg-surface border border-border rounded-xl2 transition-all duration-300 ease-swift;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px] font-semibold whitespace-nowrap transition-all duration-300 ease-swift;
+  }
+
+  .btn-primary {
+    @apply grad-bg text-white shadow-glow;
+  }
+
+  .btn-ghost {
+    @apply bg-surface border border-border text-text hover:bg-surface-hover hover:border-border-strong;
+  }
+}
