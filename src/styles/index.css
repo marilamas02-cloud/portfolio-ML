@@ -58,10 +58,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-bg text-text font-sans antialiased;
+    overflow-x: hidden;
+    width: 100%;
     transition: background-color 0.35s ease, color 0.35s ease;
   }
 
