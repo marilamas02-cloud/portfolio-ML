@@ -12,6 +12,7 @@ import SoftSkills from "./components/SoftSkills.jsx";
 import Languages from "./components/Languages.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import WhatsAppButton from "./components/WhatsAppButton.jsx";
 
 export default function App() {
   const theme = useThemeStore((s) => s.theme);
@@ -36,6 +37,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }
