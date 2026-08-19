@@ -11,10 +11,10 @@ const categoryLabel = {
 };
 
 const coverGradient = {
-  ecommerce: "linear-gradient(135deg, #6366f1, #a855f7)",
-  saas: "linear-gradient(135deg, #0ea5e9, #22d3ee)",
-  web: "linear-gradient(135deg, #34d399, #22d3ee)",
-  other: "linear-gradient(135deg, #f97316, #f43f5e)",
+  ecommerce: "linear-gradient(135deg, #1d4ed8, #2563eb)",
+  saas: "linear-gradient(135deg, #0369a1, #0ea5e9)",
+  web: "linear-gradient(135deg, #0f766e, #14b8a6)",
+  other: "linear-gradient(135deg, #334155, #64748b)",
 };
 
 function ProjectCard({ project }) {

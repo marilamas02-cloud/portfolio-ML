@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle.jsx";
-import { MenuIcon, XIcon } from "./Icons.jsx";
+import { MenuIcon, XIcon, GitHubIcon } from "./Icons.jsx";
+import { profile } from "../data/profile.js";
 
 const LINKS = [
   { id: "about", label: "Sobre mí" },
@@ -94,10 +95,22 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2.5">
+          <motion.a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ver mi GitHub"
+            title="GitHub"
+            whileHover={{ scale: 1.08, y: -2 }}
+            whileTap={{ scale: 0.94 }}
+            className="hidden sm:grid place-items-center w-[38px] h-[38px] rounded-full bg-surface border border-border text-text-muted hover:text-text hover:border-border-strong transition-colors"
+          >
+            <GitHubIcon width={18} height={18} />
+          </motion.a>
           <ThemeToggle />
           <motion.a
             href="#contact"
-            whileHover={{ y: -2, boxShadow: "0 0 0 1px rgba(99,102,241,0.35), 0 26px 70px -18px rgba(99,102,241,0.5)" }}
+            whileHover={{ y: -2, boxShadow: "0 0 0 1px rgba(37,99,235,0.35), 0 26px 70px -18px rgba(37,99,235,0.5)" }}
             whileTap={{ scale: 0.97 }}
             className="btn btn-primary !px-[18px] !py-[9px] !text-[13.5px] hidden min-[560px]:inline-flex"
           >
@@ -143,6 +156,17 @@ export default function Navbar() {
                   {link.label}
                 </motion.a>
               ))}
+              <motion.a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                variants={{ hidden: { opacity: 0, x: -16 }, show: { opacity: 1, x: 0 } }}
+                transition={{ duration: 0.35, ease: EASE }}
+                className="flex items-center gap-2.5 py-4 px-1.5 text-[19px] font-medium text-text border-b border-border"
+              >
+                <GitHubIcon width={19} height={19} /> GitHub
+              </motion.a>
               <motion.a
                 href="#contact"
                 onClick={() => setOpen(false)}
