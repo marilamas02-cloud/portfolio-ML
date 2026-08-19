@@ -7,6 +7,7 @@ export const profile = {
   phoneHref: "+543813550986",
   whatsapp: "5493813550986",
   email: "marilamas02@gmail.com",
+  github: "https://github.com/marilamas02-cloud",
   summary:
     "Desarrolladora Web Full Stack Freelance especializada en el stack MERN (MongoDB, Express, React, Node.js), con experiencia desarrollando soluciones a medida para clientes reales: catálogos e-commerce, sistemas de reservas y plataformas de gestión. Formación complementaria en QA Automation y Project Management, habiendo liderado equipos de desarrollo como Scrum Master en proyectos grupales.",
   stats: [

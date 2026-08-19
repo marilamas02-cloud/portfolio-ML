@@ -44,7 +44,7 @@ export default function Hero() {
           className="absolute inset-0 animate-blob"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(99,102,241,0.22), transparent 70%), radial-gradient(closest-side at 70% 30%, rgba(34,211,238,0.16), transparent 70%)",
+              "radial-gradient(closest-side, rgba(37,99,235,0.22), transparent 70%), radial-gradient(closest-side at 70% 30%, rgba(14,165,233,0.16), transparent 70%)",
           }}
         />
       </motion.div>
@@ -114,7 +114,7 @@ export default function Hero() {
           >
             <motion.a
               href="#projects"
-              whileHover={{ y: -2, boxShadow: "0 0 0 1px rgba(99,102,241,0.35), 0 26px 70px -18px rgba(99,102,241,0.5)" }}
+              whileHover={{ y: -2, boxShadow: "0 0 0 1px rgba(37,99,235,0.35), 0 26px 70px -18px rgba(37,99,235,0.5)" }}
               whileTap={{ scale: 0.97 }}
               className="btn btn-primary"
             >
